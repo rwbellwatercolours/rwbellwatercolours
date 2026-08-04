@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/Users/jeremybell/Downloads/\" | head -50; echo \"---\"; wc -c \"/Users/jeremybell/Downloads/Photography Work - Chris Bruinsma \\(8_2_2026 9：34：54 AM\\).html\")",
+      "Bash(python3 tools/make-placeholders.py)",
+      "Bash(python3 tools/serve.py 4321)"
+    ]
+  }
+}

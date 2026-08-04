@@ -1,0 +1,1076 @@
+/* ==========================================================================
+   Robert W. Bell Watercolours — site styles
+
+   You almost never need to edit this file to add paintings.
+   Paintings live in content/artworks.js. Site name/email live in content/site.js.
+   ========================================================================== */
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Arial, "Segoe UI", Roboto, sans-serif;
+
+  --max-width: 1440px;
+  --gutter: 40px;
+  --gutter-sm: 16px;
+  --gap: 40px;
+  --gap-compact: 16px;
+
+  --ink: #000;
+  --ink-soft: #222;
+  --ink-muted: #737373;
+  --rule: rgba(192, 192, 192, 0.9);
+  --paper: #fff;
+  --footer-bg: #000;
+  --footer-fg: #fff;
+  --footer-dim: #ddd;
+  --footer-rule: #444;
+  --hover-wash: #f5f5f5;
+  --active-wash: #f0f0f0;
+
+  /* Hover scrim over a painting on the front page. Raise the last number
+     towards 1 for a darker veil, lower it towards 0 for a lighter one. */
+  --scrim: rgba(0, 0, 0, 0.62);
+  --scrim-text: #fff;
+
+  /* The full-screen viewer opened by clicking a painting. */
+  --lightbox-scrim: rgba(0, 0, 0, 0.94);
+  --lightbox-fg: #fff;
+  /* Size, date and notes under the title. Raise towards 1 to brighten. */
+  --lightbox-dim: rgba(255, 255, 255, 0.78);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Shell — fixed header, scrolling content beneath it
+   -------------------------------------------------------------------------- */
+
+.viewer {
+  min-height: 100dvh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: auto;
+}
+
+.scrollable {
+  flex: 1 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: auto;
+}
+
+.gutter {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 var(--gutter);
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 40px 0;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.header-container {
+  background-color: var(--paper);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 40px;
+}
+
+/* The h1 is the flex item, not the link inside it. Letting it take the slack
+   keeps the search and the page nav grouped together at the right edge. */
+.header > h1 {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* inline-block, not block: the h1 stretches to hold the layout open, but the
+   link itself must stop at the end of the name rather than staying clickable
+   across the empty half of the menu bar. max-width keeps the ellipsis working
+   when the name is too long for the space. */
+.header__title {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  padding: 8px 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.navbar__link {
+  appearance: none;
+  background-color: transparent;
+  display: inline-block;
+  text-wrap: nowrap;
+  color: var(--ink-muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 54px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.navbar__link:hover {
+  color: var(--ink);
+}
+
+.navbar__link.is-selected {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* Magnifier, to the right of the page links. */
+.search-toggle {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: -8px;
+}
+
+.search-toggle:hover,
+.search-toggle.is-active {
+  color: var(--ink);
+}
+
+/* The field it opens: a full-width row beneath the header that pushes the
+   paintings down rather than squeezing into the menu bar. */
+.search-bar {
+  display: none;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0 20px;
+}
+
+.search-bar[data-open="true"] {
+  display: flex;
+}
+
+.search-bar__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--ink);
+}
+
+.search-bar__field::placeholder {
+  color: var(--ink-muted);
+}
+
+.search-bar__field:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+
+/* Hide the browser's own clear button — it doesn't match the rest. */
+.search-bar__field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-bar__clear {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar__clear:hover {
+  color: var(--ink);
+}
+
+.menu-button {
+  display: none;
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  font-size: 0;
+  cursor: pointer;
+  margin-right: -12px;
+}
+
+.menu-button svg {
+  display: block;
+}
+
+/* Full-screen mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: var(--paper);
+  display: none;
+  flex-direction: column;
+}
+
+.mobile-menu[data-open="true"] {
+  display: flex;
+}
+
+.mobile-menu__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+}
+
+.mobile-menu__title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-menu__items {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px 0;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 16px 0;
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mobile-menu__link.is-selected {
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Work grid (Selected Work / Albums / Album detail)
+   -------------------------------------------------------------------------- */
+
+/* The column count is set inline by site.js so it always agrees with the
+   packing, which has to know the number before it can balance the columns. */
+.work-grid {
+  display: grid;
+  align-items: start;
+  column-gap: var(--gap);
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+}
+
+.work-grid__column {
+  display: grid;
+  row-gap: var(--gap);
+  grid-template-columns: minmax(0px, 1fr);
+}
+
+/* Watercolours page: more columns, smaller thumbnails, tighter gaps. */
+.work-grid--compact {
+  column-gap: var(--gap-compact);
+}
+
+.work-grid--compact .work-grid__column {
+  row-gap: var(--gap-compact);
+}
+
+.work-grid--compact .work-item__reveal-title {
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.work-grid--compact .work-item__reveal {
+  padding: 8px;
+}
+
+.work-item {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.work-item__frame {
+  position: relative;
+  display: block;
+}
+
+.work-item__image {
+  display: block;
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+  background-color: var(--hover-wash);
+}
+
+/* On the front page there is no caption underneath, so hovering a painting
+   drops a dark scrim over it and sets the title in white on top. */
+.work-item__reveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+  background-color: var(--scrim);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.work-item__reveal-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--scrim-text);
+}
+
+@media (hover: hover) {
+  .work-item__reveal {
+    transition: opacity 200ms ease;
+  }
+
+  .work-item:hover .work-item__reveal,
+  .work-item:focus-visible .work-item__reveal {
+    opacity: 1;
+  }
+}
+
+.work-item__caption {
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.work-item__meta {
+  padding-top: 4px;
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+/* --------------------------------------------------------------------------
+   Simple text pages (About) and empty states
+   -------------------------------------------------------------------------- */
+
+.page-title {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  margin-bottom: 24px;
+}
+
+.prose {
+  max-width: 640px;
+}
+
+.prose p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Addresses typed into the text are turned into links by site.js. */
+.prose__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* The artist's statement on the About page — larger than the rows beneath it
+   so it still carries the page, but sized for several paragraphs rather than
+   a single line. */
+.about__bio {
+  max-width: 100%;
+}
+
+.about__bio p {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+/* Words on the left, photographs down the right, in a 1.2 : 1 split with a
+   wide gutter between them. Under 960px the columns stack and the photographs
+   run full-bleed to the edges of the screen. */
+.about {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 136px;
+  padding-bottom: 24px;
+}
+
+.about__body {
+  flex: 1.2 1 0%;
+  min-width: 0;
+}
+
+.about__portraits {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* The portraits are .work-item tiles, so the image sizing, hover title and
+   click-to-open behaviour all come from the grid rules. */
+.about__portrait + .about__portrait {
+  margin-top: 16px;
+}
+
+/* Ruled rows: a quiet uppercase label on the left, the value in its own
+   column on the right. Contact details and every art-bio section share this
+   one list, so all the headings align down a single edge.
+   Only the value is a link. */
+.about__attributes {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-bottom: 1px solid var(--rule);
+}
+
+.about__attribute {
+  width: 100%;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.about__attribute-labelRow {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.about__attribute-label {
+  min-width: 0;
+  word-break: break-word;
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about__attribute-content {
+  width: 60%;
+  word-break: break-word;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.about__attribute-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Art-bio entries. No bullets needed — the heading beside them already says
+   what the list is, so plain lines read cleaner. */
+.about__entries {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-state {
+  padding: 64px 0;
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 24px;
+  max-width: 640px;
+}
+
+.empty-state code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  background-color: var(--hover-wash);
+  padding: 2px 5px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer-container {
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
+}
+
+.footer-container .gutter {
+  padding: 0;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+}
+
+.footer__contact {
+  flex: 1 1;
+  min-width: 0;
+}
+
+/* flex-start, not stretch: otherwise the email link below is stretched to the
+   full column width and stays clickable far past the end of the address. */
+.footer__personal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer__title {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 0;
+}
+
+.footer__email {
+  display: inline-block;
+  color: inherit;
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.footer__nav-groups {
+  flex: 1 1;
+  min-width: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer__nav-group {
+  display: inline-block;
+}
+
+.footer__nav-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Same reason as .footer__personal — each link should end where its text does,
+   rather than all of them stretching to the width of the longest one. */
+.footer__nav-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer__nav-item {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+}
+
+.footer__nav-item:hover {
+  text-decoration: underline;
+}
+
+.footer__bottom {
+  color: var(--footer-dim);
+  border-top: 1px solid var(--footer-rule);
+  height: 28px;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+  padding: 0 40px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer__link,
+.footer__note {
+  color: inherit;
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+/* .footer__link is for real links; .footer__note is plain text, so it stays
+   underline-free on hover. */
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__colophon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Lightbox
+   -------------------------------------------------------------------------- */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  /* Dark scrim — the page stays faintly visible behind the painting. */
+  background-color: var(--lightbox-scrim);
+  color: var(--lightbox-fg);
+  display: none;
+  flex-direction: column;
+  animation: fade-in 180ms ease both;
+}
+
+.lightbox[data-open="true"] {
+  display: flex;
+}
+
+.lightbox[data-closing="true"] {
+  animation: fade-out 180ms ease both;
+}
+
+/* The painting takes all the room left over once the caption bar is placed,
+   and clears the arrows on either side. */
+.lightbox__stage {
+  flex: 1 1;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 112px 16px;
+}
+
+/* Fills the stage on whichever edge runs out first, scaling up if the file
+   is smaller than the screen. object-fit keeps the proportions true. */
+.lightbox__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lightbox__bar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0 40px 32px;
+  min-height: 40px;
+}
+
+.lightbox__caption {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--lightbox-fg);
+}
+
+.lightbox__meta {
+  color: var(--lightbox-dim);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+/* Shows, prizes, provenance — only rendered when a painting has notes. */
+.lightbox__notes {
+  color: var(--lightbox-dim);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  max-width: 64ch;
+}
+
+.lightbox__notes:empty {
+  display: none;
+}
+
+
+.lightbox__control {
+  position: absolute;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--lightbox-fg);
+  opacity: 0.75;
+  transition: opacity 150ms ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox__control:hover,
+.lightbox__control:focus-visible {
+  opacity: 1;
+}
+
+/* Greyed out at the first and last painting — there is nowhere further to go. */
+.lightbox__control:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/* Keeps the white icons readable if a pale painting reaches under them. */
+.lightbox__control svg {
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.55));
+}
+
+.lightbox__close {
+  top: 16px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+}
+
+.lightbox__prev,
+.lightbox__next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 96px;
+  height: 96px;
+}
+
+.lightbox__prev {
+  left: 8px;
+}
+
+.lightbox__next {
+  right: 8px;
+}
+
+.lightbox__control[hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  /* Stacked: text, then the photographs edge to edge. The negative margins
+     cancel the page gutter so they bleed to the screen. */
+  .about {
+    display: block;
+    padding-bottom: 0;
+  }
+
+  .about__portraits {
+    display: block;
+    margin: 40px calc(-1 * var(--gutter)) -16px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header__title {
+    font-size: 24px;
+  }
+
+  .navbar {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .footer__top {
+    padding: 0;
+    gap: 0;
+  }
+
+  .footer__contact,
+  .footer__nav-groups {
+    flex: 0 0 100%;
+  }
+
+  .footer__contact {
+    border-bottom: 1px solid var(--footer-rule);
+    padding: 24px 16px;
+  }
+
+  .footer__nav-groups {
+    padding: 24px 16px;
+    gap: 40px;
+  }
+
+  .footer__nav-group {
+    flex: 0 0 100%;
+  }
+
+  .footer__bottom {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 24px 16px;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .footer__colophon {
+    flex: 0 0 100%;
+    justify-content: flex-start;
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .gutter {
+    padding: 0 var(--gutter-sm);
+  }
+
+  .content {
+    padding: 16px 0;
+  }
+
+  .header {
+    padding-top: 0;
+    min-height: 56px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  /* Smaller type and a tighter row on a phone. */
+  .search-bar {
+    padding: 4px 0 16px;
+    gap: 8px;
+  }
+
+  .search-bar__field {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .footer__title {
+    font-size: 24px;
+  }
+
+  /* Column count comes from site.js as an inline style, so it is not set
+     here — this only tightens the gap between stacked columns. */
+  .work-grid {
+    row-gap: var(--gap);
+  }
+
+  .work-grid--compact {
+    row-gap: var(--gap-compact);
+  }
+
+  /* Flush with the edges of the screen — no side padding to steal width. */
+  .lightbox__stage {
+    padding: 56px 0 12px;
+  }
+
+  .lightbox__bar {
+    padding: 0 16px 24px;
+    flex-wrap: wrap;
+  }
+
+  .lightbox__close {
+    top: 4px;
+    right: 4px;
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Nothing between the painting and the edge of a phone screen — swipe
+     left or right to move through instead. */
+  .lightbox__prev,
+  .lightbox__next {
+    display: none;
+  }
+
+  /* Gutter is narrower down here, so the full-bleed offset must match it. */
+  .about__portraits {
+    margin-right: calc(-1 * var(--gutter-sm));
+    margin-left: calc(-1 * var(--gutter-sm));
+  }
+
+  /* Label above value rather than beside it, and the statement steps down. */
+  .about__bio p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .about__attribute {
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .about__attribute-labelRow,
+  .about__attribute-content {
+    width: 100%;
+  }
+
+  .about__attribute-content {
+    font-size: 17px;
+    line-height: 26px;
+  }
+}

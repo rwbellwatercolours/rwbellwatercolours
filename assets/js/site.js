@@ -14,8 +14,7 @@
   var ARTWORKS = window.ARTWORKS || [];
 
   var NAV = [
-    { id: "selects", label: "Selected Work", href: "index.html" },
-    { id: "watercolours", label: "Watercolours", href: "watercolours.html" },
+    { id: "watercolours", label: "Watercolours", href: "index.html" },
     { id: "about", label: "About", href: "about.html" },
   ];
 
@@ -39,7 +38,7 @@
      content files stay plain text with no HTML in them. A trailing full stop
      or bracket is left outside the link. */
   var LINK_PATTERN =
-    /(?:https?:\/\/[^\s<>"]+)|(?:[a-z0-9][a-z0-9._-]*@[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+)|(?:(?:www\.)?[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|ca|org|net|io|co|uk|art|gallery)(?:\/[^\s<>"]*)?)/gi;
+    /(?:https?:\/\/[^\s<>"]+)|(?:[a-z0-9][a-z0-9._-]*@[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+)|(?:(?:www\.)?[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|ca|org|net|io|co|uk|art|gallery)(?:\/[^\s<>"]*)?[...]
 
   function linkify(text) {
     var fragment = document.createDocumentFragment();
@@ -290,7 +289,7 @@
     toggle.addEventListener("click", function () {
       if (!filtersHere) {
         // Hand off to the page that has the paintings, already open.
-        window.location.href = "watercolours.html?search=1";
+        window.location.href = "index.html?search=1";
         return;
       }
       if (bar.getAttribute("data-open") === "true") close();
@@ -824,25 +823,6 @@
     if (meta && SITE.description) meta.setAttribute("content", SITE.description);
   }
 
-  function renderSelects(mount) {
-    var items = ARTWORKS.filter(function (a) {
-      return a.selects !== false;
-    });
-    setTitle("");
-    if (!items.length) {
-      renderEmpty(
-        mount,
-        "No paintings yet. Add one to <code>content/artworks.js</code> and it will appear here."
-      );
-      return;
-    }
-    // No captions here — the front page is images only, big plates.
-    renderGrid(mount, items, openViewer, {
-      captions: false,
-      density: "roomy",
-    });
-  }
-
   function renderWatercolours(mount) {
     var items = ARTWORKS.filter(function (a) {
       return a.watercolours === true;
@@ -880,7 +860,7 @@
       nothing.hidden = matches.length !== 0;
       if (!matches.length) {
         nothing.textContent =
-          'No paintings match “' + query.trim() + '”.';
+          'No paintings match "' + query.trim() + '".';
         return;
       }
       grid.setItems(matches);
@@ -999,8 +979,7 @@
     var mount = document.querySelector("[data-content]");
     if (mount) {
       var page = currentPage();
-      if (page === "selects") renderSelects(mount);
-      else if (page === "watercolours") renderWatercolours(mount);
+      if (page === "watercolours") renderWatercolours(mount);
       else if (page === "about") renderAbout(mount);
 
       /* Arriving from the magnifier on another page: open the field straight

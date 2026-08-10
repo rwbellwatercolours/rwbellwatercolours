@@ -41,6 +41,16 @@
 
 window.ARTWORKS = [
   {
+    src: "images/sailing-lake-muskoka.jpg",
+    width: 2000,
+    height: 1514,
+    title: "Sailing Lake Muskoka",
+    year: "2026-08-03",
+    medium: '12" x 16"',
+    watercolours: true,
+    alt: "A small sailboat with a yellow and blue striped sail crossing sparkling open water, a dark pine-covered headland rising behind it.",
+  },
+  {
     src: "images/001-barrel-o-bobbin-apples.avif",
     width: 1043,
     height: 1400,

@@ -177,7 +177,17 @@
   /* ----------------------------------------------------------------- header */
 
   function currentPage() {
-    return document.body.getAttribute("data-page") || "";
+    var page = document.body.getAttribute("data-page") || "";
+    // Treat both "watercolours" data-page and the current URL as watercolours section
+    if (page === "watercolours") return "watercolours";
+    if (page === "about") return "about";
+    return page;
+  }
+
+  function isWatercoloursPage() {
+    // Returns true if we're on any watercolours page (index.html or watercolours.html)
+    var page = document.body.getAttribute("data-page") || "";
+    return page === "watercolours";
   }
 
   function buildHeader() {
@@ -185,6 +195,7 @@
     if (!mount) return;
 
     var page = currentPage();
+    var isWatercolours = isWatercoloursPage();
 
     var container = el("div", "header-container");
     var gutter = el("div", "gutter");
@@ -197,13 +208,14 @@
 
     var navbar = el("div", "navbar");
     NAV.forEach(function (item) {
+      var isSelected = item.id === "watercolours" ? isWatercolours : item.id === page;
       var link = el(
         "a",
-        "navbar__link" + (item.id === page ? " is-selected" : ""),
+        "navbar__link" + (isSelected ? " is-selected" : ""),
         item.label
       );
       link.href = item.href;
-      if (item.id === page) link.setAttribute("aria-current", "page");
+      if (isSelected) link.setAttribute("aria-current", "page");
       navbar.appendChild(link);
     });
 
@@ -230,7 +242,7 @@
     container.appendChild(gutter);
     mount.appendChild(container);
 
-    buildMobileMenu(menuButton, page);
+    buildMobileMenu(menuButton, page, isWatercolours);
   }
 
   /* Magnifier in the menu bar, on every page. Only the Watercolours grid can
@@ -322,7 +334,7 @@
     return { toggle: toggle, bar: bar };
   }
 
-  function buildMobileMenu(menuButton, page) {
+  function buildMobileMenu(menuButton, page, isWatercolours) {
     var menu = el("div", "mobile-menu");
     menu.setAttribute("role", "dialog");
     menu.setAttribute("aria-modal", "true");
@@ -345,9 +357,10 @@
 
     var items = el("div", "mobile-menu__items");
     NAV.forEach(function (item) {
+      var isSelected = item.id === "watercolours" ? isWatercolours : item.id === page;
       var link = el(
         "a",
-        "mobile-menu__link" + (item.id === page ? " is-selected" : ""),
+        "mobile-menu__link" + (isSelected ? " is-selected" : ""),
         item.label
       );
       link.href = item.href;

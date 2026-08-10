@@ -23,6 +23,15 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         http.server.SimpleHTTPRequestHandler.end_headers(self)
 
+    def translate_path(self, path):
+        # The pages are linked without ".html" — /about rather than /about.html.
+        # GitHub Pages fills in the extension by itself; this makes the preview
+        # behave the same way, so what you see here is what goes live.
+        local = http.server.SimpleHTTPRequestHandler.translate_path(self, path)
+        if not os.path.exists(local) and os.path.isfile(local + ".html"):
+            return local + ".html"
+        return local
+
     def log_message(self, fmt, *args):
         pass
 

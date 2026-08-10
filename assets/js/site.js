@@ -13,9 +13,13 @@
   var SITE = window.SITE || {};
   var ARTWORKS = window.ARTWORKS || [];
 
+  /* Links leave the ".html" off — "about", not "about.html". GitHub Pages
+     fills the extension in, and tools/serve.py does the same so the preview
+     matches. Paths stay relative ("./" for the front page) so the site still
+     works when hosted in a subfolder. */
   var NAV = [
-    { id: "watercolours", label: "Watercolours", href: "index.html" },
-    { id: "about", label: "About", href: "about.html" },
+    { id: "watercolours", label: "Watercolours", href: "./" },
+    { id: "about", label: "About", href: "about" },
   ];
 
   /* ---------------------------------------------------------------- helpers */
@@ -192,7 +196,7 @@
 
     var h1 = el("h1");
     var titleLink = el("a", "header__title", SITE.name || "Portfolio");
-    titleLink.href = "index.html";
+    titleLink.href = "./";
     h1.appendChild(titleLink);
 
     var navbar = el("div", "navbar");
@@ -290,7 +294,7 @@
     toggle.addEventListener("click", function () {
       if (!filtersHere) {
         // Hand off to the page that has the paintings, already open.
-        window.location.href = "index.html?search=1";
+        window.location.href = "./?search=1";
         return;
       }
       if (bar.getAttribute("data-open") === "true") close();

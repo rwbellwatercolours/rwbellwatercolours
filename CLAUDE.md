@@ -48,8 +48,10 @@ existing HTML file, give it a new `data-page`, and add a `render*` branch in
 the `boot()` function plus an entry in the `NAV` array.
 
 Scripts are loaded as ordinary `<script src>` tags (not modules) and the data
-files assign to `window.*`. That's on purpose — it means the site also works
-when opened straight off the disk with `file://`.
+files assign to `window.*`. That's on purpose — it keeps the site to plain
+files with nothing to build. A single page still opens straight off the disk
+with `file://`, though the nav links between pages need a server (see the
+note on extensionless URLs below).
 
 ## Adding paintings — the common request
 
@@ -109,6 +111,11 @@ Only commit and push when asked. See README.md for the one-time setup.
 
 - All asset paths are **relative**, not root-absolute, so the site works when
   hosted in a subfolder (e.g. a GitHub project page). Keep it that way.
+- Pages are linked **without the `.html`** — `about`, and `./` for the front
+  page. The files on disk are still `about.html` etc.; GitHub Pages fills the
+  extension in, and `tools/serve.py` does the same so the preview matches.
+  A consequence: the nav links only work over a server, so preview with
+  `serve.py` rather than opening the files with `file://`.
 - The grid is packed by `packColumns()` in `site.js`, which balances column
   heights using each image's aspect ratio. It needs correct `width` and
   `height` on every artwork.

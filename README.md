@@ -25,8 +25,7 @@ python3 tools/add-images.py --write
 **Or just ask Claude.** Open this folder in Claude Code and say something like:
 
 > I've put three new paintings in the images folder. The first is "Estuary,
-> Low Tide", painted 2026, 14" x 11", and I'd like it on both pages.
-> Can you add them all?
+> Low Tide", painted 2026, 14" x 11". Can you add them all?
 
 It knows how this site is laid out and will do the whole thing.
 
@@ -39,8 +38,7 @@ It knows how this site is laid out and will do the whole thing.
 | `images/`              | Every painting photo. Drop new ones here.                      |
 | `content/artworks.js`  | **The list of paintings.** Title, year, size, which pages.      |
 | `content/site.js`      | Your name, email, social links, and the About page text.       |
-| `index.html`           | The front page ("Selected Work")                                     |
-| `watercolours.html`    | The Watercolours page (smaller thumbnails)                     |
+| `index.html`           | The front page — all the paintings                             |
 | `about.html`           | The About page                                                 |
 | `assets/`              | The look and the behaviour. You rarely need to touch this.     |
 | `tools/`               | Small helper scripts (see below).                              |
@@ -62,16 +60,16 @@ Open `content/artworks.js` and copy an existing block to the top of the list:
     title: "Estuary, Low Tide",
     year: "2026",
     medium: '16" x 12"',                  // single quotes: it contains " marks
-    selects: true,
+    watercolours: true,
   },
 ```
 
 - `width` and `height` are the image's real pixel size. Getting them right
-  stops the page jumping around while it loads, and keeps the two columns even.
+  stops the page jumping around while it loads, and keeps the columns even.
   `tools/add-images.py` works them out for you — you don't have to.
-- `selects: true` puts it on the front page (big plates).
-- `watercolours: true` puts it on the Watercolours page (small thumbnails).
-  The two are independent — a painting can be on one, both, or neither.
+- `watercolours: true` shows the painting on the site. Leave it off and the
+  painting stays in the file but isn't shown to anyone — handy for holding
+  something back without deleting it.
 
 The order of the list is the order paintings appear. Newest at the top.
 

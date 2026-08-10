@@ -38,7 +38,7 @@
      content files stay plain text with no HTML in them. A trailing full stop
      or bracket is left outside the link. */
   var LINK_PATTERN =
-    /(?:https?:\/\/[^\s<>"]+)|(?:[a-z0-9][a-z0-9._-]*@[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+)|(?:(?:www\.)?[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|ca|org|net|io|co|uk|art|gallery)(?:\/[^\s<>"]*)?[...]
+    /(?:https?:\/\/[^\s<>"]+)|(?:[a-z0-9][a-z0-9._-]*@[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+)|(?:(?:www\.)?[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|ca|org|net|io|co|uk|art|gallery)(?:\/[^\s<>"]*)?)/i;
 
   function linkify(text) {
     var fragment = document.createDocumentFragment();
@@ -177,17 +177,7 @@
   /* ----------------------------------------------------------------- header */
 
   function currentPage() {
-    var page = document.body.getAttribute("data-page") || "";
-    // Treat both "watercolours" data-page and the current URL as watercolours section
-    if (page === "watercolours") return "watercolours";
-    if (page === "about") return "about";
-    return page;
-  }
-
-  function isWatercoloursPage() {
-    // Returns true if we're on any watercolours page (index.html or watercolours.html)
-    var page = document.body.getAttribute("data-page") || "";
-    return page === "watercolours";
+    return document.body.getAttribute("data-page") || "";
   }
 
   function buildHeader() {
@@ -195,7 +185,6 @@
     if (!mount) return;
 
     var page = currentPage();
-    var isWatercolours = isWatercoloursPage();
 
     var container = el("div", "header-container");
     var gutter = el("div", "gutter");
@@ -208,7 +197,7 @@
 
     var navbar = el("div", "navbar");
     NAV.forEach(function (item) {
-      var isSelected = item.id === "watercolours" ? isWatercolours : item.id === page;
+      var isSelected = item.id === page;
       var link = el(
         "a",
         "navbar__link" + (isSelected ? " is-selected" : ""),
@@ -242,7 +231,7 @@
     container.appendChild(gutter);
     mount.appendChild(container);
 
-    buildMobileMenu(menuButton, page, isWatercolours);
+    buildMobileMenu(menuButton, page);
   }
 
   /* Magnifier in the menu bar, on every page. Only the Watercolours grid can
@@ -334,7 +323,7 @@
     return { toggle: toggle, bar: bar };
   }
 
-  function buildMobileMenu(menuButton, page, isWatercolours) {
+  function buildMobileMenu(menuButton, page) {
     var menu = el("div", "mobile-menu");
     menu.setAttribute("role", "dialog");
     menu.setAttribute("aria-modal", "true");
@@ -357,7 +346,7 @@
 
     var items = el("div", "mobile-menu__items");
     NAV.forEach(function (item) {
-      var isSelected = item.id === "watercolours" ? isWatercolours : item.id === page;
+      var isSelected = item.id === page;
       var link = el(
         "a",
         "mobile-menu__link" + (isSelected ? " is-selected" : ""),
@@ -840,7 +829,9 @@
     var items = ARTWORKS.filter(function (a) {
       return a.watercolours === true;
     });
-    setTitle("Watercolours");
+    // The front page, so the browser tab reads "Robert W. Bell — Watercolours"
+    // rather than repeating the word.
+    setTitle("");
     if (!items.length) {
       renderEmpty(
         mount,
@@ -848,7 +839,6 @@
       );
       return;
     }
-    // Same page, packed tighter — many small thumbnails rather than few plates.
     var gridMount = el("div");
     var nothing = el("div", "empty-state");
     nothing.hidden = true;

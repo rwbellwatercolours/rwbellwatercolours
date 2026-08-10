@@ -29,10 +29,11 @@ or two sentences what changed and how to see it. Don't hand them a task list.
 ## Layout
 
 ```
-index.html         Selected Work — front page          body[data-page="selects"]
-watercolours.html  Watercolours, compact grid        body[data-page="watercolours"]
-about.html         About                             body[data-page="about"]
+index.html         Watercolours — front page, compact grid  body[data-page="watercolours"]
+about.html         About                                    body[data-page="about"]
 404.html           Not found
+watercolours.html  Redirect stub to index.html — the grid used to live here,
+                   so old links keep working. No content of its own.
 
 content/site.js       window.SITE      — name, email, socials, About text
 content/artworks.js   window.ARTWORKS  — the paintings
@@ -61,9 +62,8 @@ An artwork entry:
   height: 1536,
   title: "Estuary, Low Tide",
   year: "2026",
-  medium: '16" x 12"',                    // single quotes: it contains " marks
-  selects: true,                        // show on the front page
-  watercolours: true,                   // show on the Watercolours page
+  medium: '16" x 12"',                  // single quotes: it contains " marks
+  watercolours: true,                   // show it on the Watercolours page
 }
 ```
 
@@ -78,8 +78,8 @@ Steps:
 4. If the artist gave a title/year/medium, use it. If not, leave `year` and
    `medium` as `""` rather than inventing details — they're optional and the
    caption adapts.
-5. Set `selects` and `watercolours` to whichever pages they asked for. If they
-   didn't say, put it on both.
+5. Set `watercolours: true` — there is only one grid now, and leaving it off
+   means the painting never appears.
 
 `python3 tools/add-images.py --write` does steps 2–3 automatically for every
 image not yet listed, leaving the title guessed from the filename. Using it and
@@ -91,9 +91,9 @@ then editing the titles is usually faster than writing entries by hand.
 python3 tools/serve.py
 ```
 
-Serves at http://localhost:4321. Verify both the front page and the
-Watercolours page, and that clicking a painting opens the lightbox. Confirm no
-broken images before reporting done.
+Serves at http://localhost:4321. Verify the front page and the About page, and
+that clicking a painting opens the lightbox. Confirm no broken images before
+reporting done.
 
 ## Deploying
 
@@ -109,15 +109,15 @@ Only commit and push when asked. See README.md for the one-time setup.
 
 - All asset paths are **relative**, not root-absolute, so the site works when
   hosted in a subfolder (e.g. a GitHub project page). Keep it that way.
-- The two-column grid is packed by `packColumns()` in `site.js`, which balances
-  column heights using each image's aspect ratio. It needs correct `width` and
+- The grid is packed by `packColumns()` in `site.js`, which balances column
+  heights using each image's aspect ratio. It needs correct `width` and
   `height` on every artwork.
-- Below 640px the grid drops to a single column and re-renders on resize, so
-  paintings read in list order on a phone.
+- The grid is four columns wide, dropping to three below 900px and two below
+  640px, and re-renders on resize.
 - Titles, years and mediums are optional and often empty — the artist adds
   them later. Never invent one. Do write an `alt` description of what the
   painting shows; it is the only text a screen reader gets.
-- Both grid pages deliberately show images with **no** captions underneath —
+- The grid deliberately shows images with **no** captions underneath —
   the title appears on hover instead, and in the lightbox. `renderGrid` still
   supports `{captions: true}` but nothing uses it. Don't "helpfully" add them.
 - Column counts live in the `COLUMNS` table in site.js and are applied as an

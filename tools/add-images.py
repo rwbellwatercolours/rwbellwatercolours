@@ -142,8 +142,7 @@ def entry(src, width, height, title):
             '    title: "%s",' % title.replace('"', "'"),
             '    year: "",',
             '    medium: "",',
-            '    album: "",',
-            "    selects: true,",
+            "    watercolours: true,",
             "  },",
             "",
         ]

@@ -27,14 +27,13 @@
      alt      a plain description of what the painting shows, read aloud to
               visitors using a screen reader. Never shown on screen.
 
-     selects       true = show it on the front page (big plates).
-     watercolours  true = show it on the Watercolours page (small thumbnails).
-                   The two are independent: a painting can be on one page,
-                   both, or neither.
+     watercolours  true = show it on the Watercolours page, which is the
+                   front page of the site. Leave it out and the painting
+                   stays in this file but is not shown anywhere.
 
    Titles, years and mediums are OPTIONAL - leave them as "" and nothing is
-   shown rather than a blank line. The front page shows the images on their
-   own either way; the title appears over the painting on hover, and in full
+   shown rather than a blank line. The page shows the images on their own
+   either way; the title appears over the painting on hover, and in full
    when a painting is opened full-screen.
 
    The order of this list is the order paintings appear. Newest at the top.
@@ -48,7 +47,6 @@ window.ARTWORKS = [
     title: "Barrel O'bobbin Apples",
     year: "2026-04-16",
     medium: '16" x 12"',
-    selects: true,
     watercolours: true,
     alt: "Apples in a bowl seen from above, resting on a deep blue cloth in strong shadow.",
   },
@@ -59,7 +57,6 @@ window.ARTWORKS = [
     title: "Glen Road Bridge Rider",
     year: "2025-01-17",
     medium: '12" x 16"',
-    selects: true,
     watercolours: true,
     alt: "A cyclist with a red backpack riding along a pavement beneath a blaze of golden autumn trees.",
   },
@@ -70,7 +67,6 @@ window.ARTWORKS = [
     title: "Lake Superior - NE Shore",
     year: "2026-02-11",
     medium: '12" x 16"',
-    selects: true,
     watercolours: true,
     alt: "Waves breaking white against a rocky shoreline, with evergreens and autumn colour on the headland behind.",
   },
@@ -81,7 +77,6 @@ window.ARTWORKS = [
     title: "Tilly on Tap",
     year: "",
     medium: '24" x 18"',
-    selects: true,
     watercolours: true,
     alt: "A calico cat perched beside a kitchen sink, watching the water run from the tap.",
   },
@@ -92,7 +87,6 @@ window.ARTWORKS = [
     title: "Wood Duck",
     year: "2025-12-08",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -102,7 +96,6 @@ window.ARTWORKS = [
     title: "At the Water's Edge",
     year: "2024-07-18",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -112,7 +105,6 @@ window.ARTWORKS = [
     title: "Chinese Lanterns",
     year: "2024-01-26",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -122,7 +114,6 @@ window.ARTWORKS = [
     title: "Black-crowned Night Heron",
     year: "2025-11-14",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -132,7 +123,6 @@ window.ARTWORKS = [
     title: "Sandpipers - Southampton",
     year: "2025-12-30",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -143,7 +133,6 @@ window.ARTWORKS = [
     year: "2024-01-29",
     medium: '16" x 12"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Spring, 2024 - Juror: Ray McNeice",
-    selects: true,
     watercolours: true,
     alt: "A back alley in strong sun — a dark pickup truck parked in shadow, hydro poles and wires overhead, and a cyclist further down the lane.",
   },
@@ -154,7 +143,6 @@ window.ARTWORKS = [
     title: "Still Life with Orange",
     year: "2025-04-10",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -164,7 +152,6 @@ window.ARTWORKS = [
     title: "Montauk Spray",
     year: "2026-01-13",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -174,7 +161,6 @@ window.ARTWORKS = [
     title: "Interior Zen",
     year: "2025-06-15",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -185,7 +171,6 @@ window.ARTWORKS = [
     year: "2024-10-06",
     medium: '22.5" x 15"',
     notes: "Exhibited at Artists' Choice Show - Papermill Gallery, Todmorden Mills - April, 2025",
-    selects: false,
     watercolours: true,
   },
   {
@@ -195,7 +180,6 @@ window.ARTWORKS = [
     title: "Stepping out",
     year: "2026-01-03",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -205,7 +189,6 @@ window.ARTWORKS = [
     title: "Blue Watering Can No. 2",
     year: "2026-01-07",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -216,7 +199,6 @@ window.ARTWORKS = [
     year: "2022",
     medium: '15" x 22.5"',
     notes: "Gold Medal Award Toronto Watercolour Society Aquavision Group Show - Spring, 2022 Papermill Gallery at Todmorden Mills Juror: Merv Richardson, CSPWC, OSA",
-    selects: false,
     watercolours: true,
   },
   {
@@ -226,7 +208,6 @@ window.ARTWORKS = [
     title: "Orange Shutter Shadows",
     year: "2025-04-20",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -236,7 +217,6 @@ window.ARTWORKS = [
     title: "Canoe at Rest",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -247,7 +227,6 @@ window.ARTWORKS = [
     year: "2025-01-23",
     medium: '14" x 20"',
     notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Spring 2025 Juror: Joanne Poluch",
-    selects: false,
     watercolours: true,
   },
   {
@@ -257,7 +236,6 @@ window.ARTWORKS = [
     title: "Barney on Tap",
     year: "2026-03-03",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -267,7 +245,6 @@ window.ARTWORKS = [
     title: "Dragon Bowl with Pears",
     year: "2024-09-28",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -277,7 +254,6 @@ window.ARTWORKS = [
     title: "Still Life with Blue & White Bowl",
     year: "2025-10-07",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -287,7 +263,6 @@ window.ARTWORKS = [
     title: "Red-winged Blackbird - Branch Office",
     year: "2025-08-09",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -297,7 +272,6 @@ window.ARTWORKS = [
     title: "Lookout Point (above Don Valley Brick Works)",
     year: "2023-08-10",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -308,7 +282,6 @@ window.ARTWORKS = [
     year: "2024-12-24",
     medium: '12" x 16"',
     notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Spring 2025 Juror: Joanne Poluch",
-    selects: false,
     watercolours: true,
   },
   {
@@ -319,7 +292,6 @@ window.ARTWORKS = [
     year: "2024-11-20",
     medium: '12" x 16"',
     notes: "Exhibited at Artists' Choice Show - Papermill Gallery, Todmorden Mills - April, 2025",
-    selects: false,
     watercolours: true,
   },
   {
@@ -329,7 +301,6 @@ window.ARTWORKS = [
     title: "Woodbine Beach in Winter",
     year: "2024-07-02",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -340,7 +311,6 @@ window.ARTWORKS = [
     year: "2024-06-10",
     medium: '12" x 16"',
     notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Fall, 2024 Juror: Brent Laycock CSPWC, OSA, RCA",
-    selects: false,
     watercolours: true,
   },
   {
@@ -350,7 +320,6 @@ window.ARTWORKS = [
     title: "Off Balmy Beach in February",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -360,7 +329,6 @@ window.ARTWORKS = [
     title: "The Beaches in January",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -370,7 +338,6 @@ window.ARTWORKS = [
     title: "Cat Scan",
     year: "2022-04-23",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -381,7 +348,6 @@ window.ARTWORKS = [
     year: "2023-08-06",
     medium: '12" x 16"',
     notes: "Juried entry to Toronto Watercolour Society - Aquavision Group Show - Fall, 2023 - Juror: Carol Westcott, CSPW",
-    selects: false,
     watercolours: true,
   },
   {
@@ -391,7 +357,6 @@ window.ARTWORKS = [
     title: "Faroe Islands Waterfall No. 1",
     year: "2025-03-24",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -401,7 +366,6 @@ window.ARTWORKS = [
     title: "Tree Twist",
     year: "2024-07-28",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -411,7 +375,6 @@ window.ARTWORKS = [
     title: "The Ginkgo on Ulster Street",
     year: "2024",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -421,7 +384,6 @@ window.ARTWORKS = [
     title: "Focalberry",
     year: "2024-07-10",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -431,7 +393,6 @@ window.ARTWORKS = [
     title: "November - Ashbridges Bay",
     year: "2023-08-08",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -442,7 +403,6 @@ window.ARTWORKS = [
     year: "2024-09-24",
     medium: '22.5" x 15"',
     notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Fall, 2024 Juror: Brent Laycock CSPWC, OSA, RCA",
-    selects: false,
     watercolours: true,
   },
   {
@@ -452,7 +412,6 @@ window.ARTWORKS = [
     title: "Light & Shadow",
     year: "",
     medium: '8" x 13"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -463,7 +422,6 @@ window.ARTWORKS = [
     year: "2023-07-06",
     medium: '16" x 12"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Fall, 2023 - Juror: Carol Westcott, CSPW",
-    selects: false,
     watercolours: true,
   },
   {
@@ -473,7 +431,6 @@ window.ARTWORKS = [
     title: "Winter - Park Drive Reservation Lands",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -483,7 +440,6 @@ window.ARTWORKS = [
     title: "Southampton Beach",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -493,7 +449,6 @@ window.ARTWORKS = [
     title: "Great Blue Heron in Flight",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -503,7 +458,6 @@ window.ARTWORKS = [
     title: "Tropical Fish",
     year: "",
     medium: '8" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -514,7 +468,6 @@ window.ARTWORKS = [
     year: "2021",
     medium: '18" x 24"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Fall, 2021 - Juror: Joel Popadics, AWS, ASMA",
-    selects: false,
     watercolours: true,
   },
   {
@@ -524,7 +477,6 @@ window.ARTWORKS = [
     title: "Into the Woods",
     year: "",
     medium: '22" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -535,7 +487,6 @@ window.ARTWORKS = [
     year: "2023-02-16",
     medium: '14" x 11"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Spring, 2023 - Juror: Ray McNeice",
-    selects: false,
     watercolours: true,
   },
   {
@@ -545,7 +496,6 @@ window.ARTWORKS = [
     title: "Sunset on the Chobe River, Botswana",
     year: "2025-07-10",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -555,7 +505,6 @@ window.ARTWORKS = [
     title: "Orchard Street, Lower East Side",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -565,7 +514,6 @@ window.ARTWORKS = [
     title: "Red Truck, Lower East Side, Manhattan",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -576,7 +524,6 @@ window.ARTWORKS = [
     year: "2022",
     medium: '24" x 18"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Fall, 2022 - Juror: Logan Bales",
-    selects: false,
     watercolours: true,
   },
   {
@@ -586,7 +533,6 @@ window.ARTWORKS = [
     title: "A Moment in the Sun",
     year: "2023-07-06",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -596,7 +542,6 @@ window.ARTWORKS = [
     title: "Milkweed",
     year: "2024-12-23",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -606,7 +551,6 @@ window.ARTWORKS = [
     title: "The Red Leaf",
     year: "2024-11-06",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -616,7 +560,6 @@ window.ARTWORKS = [
     title: "Amsterdam",
     year: "2025-12-08",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -626,7 +569,6 @@ window.ARTWORKS = [
     title: "Barn Interior",
     year: "2024-02-08",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -636,7 +578,6 @@ window.ARTWORKS = [
     title: "Farm near Churchill, Innisfil Twp.",
     year: "2024-12-24",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -646,7 +587,6 @@ window.ARTWORKS = [
     title: "Dragon Bowl and Mandarins",
     year: "2024-10-19",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -656,7 +596,6 @@ window.ARTWORKS = [
     title: "Chestnut Study No. 2",
     year: "2024-09-05",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -666,7 +605,6 @@ window.ARTWORKS = [
     title: "Gone Fishin'",
     year: "2024-08-04",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -676,7 +614,6 @@ window.ARTWORKS = [
     title: "The Red Backpack",
     year: "2023-08-13",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -686,7 +623,6 @@ window.ARTWORKS = [
     title: "Sparrows Online",
     year: "2024-07-05",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -696,7 +632,6 @@ window.ARTWORKS = [
     title: "Soaring",
     year: "2024-11-07",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -706,7 +641,6 @@ window.ARTWORKS = [
     title: "Lake Muskoka, October",
     year: "2024-08-02",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -716,7 +650,6 @@ window.ARTWORKS = [
     title: "Country Road, Line 2",
     year: "2025-07",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -726,7 +659,6 @@ window.ARTWORKS = [
     title: "Muskoka Rock after the Rain",
     year: "2024-07-30",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -736,7 +668,6 @@ window.ARTWORKS = [
     title: "Sunlit Meadow, Brick Works",
     year: "2024-05-28",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -746,7 +677,6 @@ window.ARTWORKS = [
     title: "Water Lily - Brick Works",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -756,7 +686,6 @@ window.ARTWORKS = [
     title: "Cat Reflection",
     year: "2025-10-05",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -766,7 +695,6 @@ window.ARTWORKS = [
     title: "A Closer Look",
     year: "2023-07",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -777,7 +705,6 @@ window.ARTWORKS = [
     year: "2024-05-30",
     medium: '16" x 12"',
     notes: "Juried entry to Toronto Watercolour Aquavision online Group Show - Fall 2025 Juror: Rayne Tunley",
-    selects: false,
     watercolours: true,
   },
   {
@@ -787,7 +714,6 @@ window.ARTWORKS = [
     title: "Squatter",
     year: "2024-04-07",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -797,7 +723,6 @@ window.ARTWORKS = [
     title: "Shelf Life",
     year: "",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -807,7 +732,6 @@ window.ARTWORKS = [
     title: "Stair to Stare",
     year: "2023-07-02",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -817,7 +741,6 @@ window.ARTWORKS = [
     title: "Coffee Time",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -827,7 +750,6 @@ window.ARTWORKS = [
     title: "What goes bump in the night?",
     year: "2024-01-08",
     medium: '22" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -837,7 +759,6 @@ window.ARTWORKS = [
     title: "Green Door Shadows",
     year: "2025-04-17",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -847,7 +768,6 @@ window.ARTWORKS = [
     title: "Dogwood after the Rain No. 2",
     year: "",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -857,7 +777,6 @@ window.ARTWORKS = [
     title: "Backlit Plant",
     year: "2023-01-31",
     medium: '14.5" x 9.75"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -867,7 +786,6 @@ window.ARTWORKS = [
     title: "Chestnut Study No. 1",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -877,7 +795,6 @@ window.ARTWORKS = [
     title: "Great Blue Heron, De Grassi Point",
     year: "",
     medium: '6" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -887,7 +804,6 @@ window.ARTWORKS = [
     title: "Mallard No. 3",
     year: "2023-08-02",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -897,7 +813,6 @@ window.ARTWORKS = [
     title: "Catching the Light",
     year: "2024-07-21",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -907,7 +822,6 @@ window.ARTWORKS = [
     title: "Cast Shadows",
     year: "2024-08-07",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -917,7 +831,6 @@ window.ARTWORKS = [
     title: "Meadow in Winter No. 1, De Grassi Point",
     year: "",
     medium: '22.5" x 30"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -927,7 +840,6 @@ window.ARTWORKS = [
     title: "Brooding Sky, Lake Simcoe",
     year: "",
     medium: '8.25" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -937,7 +849,6 @@ window.ARTWORKS = [
     title: "Sailboat at Anchor, De Grassi Point",
     year: "",
     medium: '15" x 22"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -947,7 +858,6 @@ window.ARTWORKS = [
     title: "Forest Glade, De Grassi Point",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -957,7 +867,6 @@ window.ARTWORKS = [
     title: "Lake Muskoka - Contre Jour",
     year: "",
     medium: '15" x 22"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -968,7 +877,6 @@ window.ARTWORKS = [
     year: "2021",
     medium: '24" x 18"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Fall, 2021 - Juror: Joel Popadics, AWS, ASMA",
-    selects: false,
     watercolours: true,
   },
   {
@@ -978,7 +886,6 @@ window.ARTWORKS = [
     title: "Night Traffic, Mt. Pleasant",
     year: "2025-01-20",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -988,7 +895,6 @@ window.ARTWORKS = [
     title: "The Burrow, Brick Works",
     year: "",
     medium: '10" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -998,7 +904,6 @@ window.ARTWORKS = [
     title: "Goldfish No. 1",
     year: "2024-07-12",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1008,7 +913,6 @@ window.ARTWORKS = [
     title: "Robert Street at College",
     year: "2025-11-26",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1018,7 +922,6 @@ window.ARTWORKS = [
     title: "Goldfish No. 2",
     year: "2025-05-27",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1028,7 +931,6 @@ window.ARTWORKS = [
     title: "Mud Creek - looking west",
     year: "2026-01-15",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1038,7 +940,6 @@ window.ARTWORKS = [
     title: "Canoe Bound",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1048,7 +949,6 @@ window.ARTWORKS = [
     title: "Red Beetle on Life Support",
     year: "2025-08-06",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1058,7 +958,6 @@ window.ARTWORKS = [
     title: "Red-winged blackbird",
     year: "2023-07",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1068,7 +967,6 @@ window.ARTWORKS = [
     title: "October Reflections, Brick Works",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1078,7 +976,6 @@ window.ARTWORKS = [
     title: "Pink House, Bermuda",
     year: "",
     medium: '16" x 20"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1088,7 +985,6 @@ window.ARTWORKS = [
     title: "Cap Taillot, near St. Tropez",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1098,7 +994,6 @@ window.ARTWORKS = [
     title: "Cabot Trail",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1108,7 +1003,6 @@ window.ARTWORKS = [
     title: "Park Drive Reservation Lands, Summer",
     year: "2025-08-10",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1118,7 +1012,6 @@ window.ARTWORKS = [
     title: "Evening Glow - Lake Kipawa, Quebec",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1128,7 +1021,6 @@ window.ARTWORKS = [
     title: "Lake Kipawa, Quebec",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1138,7 +1030,6 @@ window.ARTWORKS = [
     title: "The Pink Bike",
     year: "2025",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1148,7 +1039,6 @@ window.ARTWORKS = [
     title: "My Goatee",
     year: "2024-03-28",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1158,7 +1048,6 @@ window.ARTWORKS = [
     title: "Feeling a little sheepish at Riverdale Farm",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1168,7 +1057,6 @@ window.ARTWORKS = [
     title: "Sheep Ahoy, Riverdale Farm",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1178,7 +1066,6 @@ window.ARTWORKS = [
     title: "Rabble Rousers",
     year: "2023-07-14",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1188,7 +1075,6 @@ window.ARTWORKS = [
     title: "Dee Dee, Samoyed of Destiny",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1198,7 +1084,6 @@ window.ARTWORKS = [
     title: "Battle Stations!",
     year: "2025-05-27",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1208,7 +1093,6 @@ window.ARTWORKS = [
     title: "Barney against the Grain",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1218,7 +1102,6 @@ window.ARTWORKS = [
     title: "On break - Lower East Side, NYC",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1228,7 +1111,6 @@ window.ARTWORKS = [
     title: "Red Sox win the Series! Oct. 2018",
     year: "2018",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1238,7 +1120,6 @@ window.ARTWORKS = [
     title: "At the Beaches in January",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1248,7 +1129,6 @@ window.ARTWORKS = [
     title: "Vigil at the Beaches",
     year: "",
     medium: '8" x 23"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1258,7 +1138,6 @@ window.ARTWORKS = [
     title: "Frozen River",
     year: "",
     medium: '9" x 28"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1268,7 +1147,6 @@ window.ARTWORKS = [
     title: "Agawa Rock, Lake Superior Provincial Park",
     year: "",
     medium: '16" x 20"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1278,7 +1156,6 @@ window.ARTWORKS = [
     title: "Wit's End, Lake Simcoe",
     year: "",
     medium: '22.5" x 30"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1288,7 +1165,6 @@ window.ARTWORKS = [
     title: "Lily Pads, Lake Simcoe",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1298,7 +1174,6 @@ window.ARTWORKS = [
     title: "Lily Pads, Brick Works",
     year: "2024-09-01",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1308,7 +1183,6 @@ window.ARTWORKS = [
     title: "Oak Leaves, De Grassi Point",
     year: "",
     medium: '8" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1318,7 +1192,6 @@ window.ARTWORKS = [
     title: "Sunlit Stroll",
     year: "2025-07",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1328,7 +1201,6 @@ window.ARTWORKS = [
     title: "Old Barn, Innisfree",
     year: "",
     medium: '10" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1338,7 +1210,6 @@ window.ARTWORKS = [
     title: "Woodbine Beach in Winter No.2",
     year: "2023-04-23",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1348,7 +1219,6 @@ window.ARTWORKS = [
     title: "Killarney East Lighthouse",
     year: "",
     medium: '10.25" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1358,7 +1228,6 @@ window.ARTWORKS = [
     title: "Halfway Log Dump, Bruce Peninsula",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1368,7 +1237,6 @@ window.ARTWORKS = [
     title: "Wetland, Hardy Lake Provincial Park",
     year: "",
     medium: '22" x 30"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1378,7 +1246,6 @@ window.ARTWORKS = [
     title: "Pink Rock, Killarney",
     year: "2021-12-24",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1388,7 +1255,6 @@ window.ARTWORKS = [
     title: "Killarney",
     year: "",
     medium: '7" x 9"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1398,7 +1264,6 @@ window.ARTWORKS = [
     title: "Firing Squad - Fort York Guard: Musket Drill",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1408,7 +1273,6 @@ window.ARTWORKS = [
     title: "Drum Major, Canadian Regiment of Fencible Infantry (Fort York Guard)",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1418,7 +1282,6 @@ window.ARTWORKS = [
     title: "Get to the Point - Fort York Guard",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1428,7 +1291,6 @@ window.ARTWORKS = [
     title: "Flowerpot Island No. 1, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1438,7 +1300,6 @@ window.ARTWORKS = [
     title: "Flower Pot Island No. 2 Bruce Peninsula",
     year: "",
     medium: '22" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1448,7 +1309,6 @@ window.ARTWORKS = [
     title: "Flowerpot Island from the water",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1458,7 +1318,6 @@ window.ARTWORKS = [
     title: "Indian Head Cove, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1468,7 +1327,6 @@ window.ARTWORKS = [
     title: "Fathom Five National Marine Park",
     year: "2019-01-02",
     medium: '7.5" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1478,7 +1336,6 @@ window.ARTWORKS = [
     title: "Muskoka Cottage - Three Mile Lake",
     year: "2020-09-08",
     medium: '15" x 22"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1488,7 +1345,6 @@ window.ARTWORKS = [
     title: "Sauble Falls",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1498,7 +1354,6 @@ window.ARTWORKS = [
     title: "Abandoned Farmhouse - Line 3, Innisfil Twp.",
     year: "",
     medium: '10" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1508,7 +1363,6 @@ window.ARTWORKS = [
     title: "Innisfree Barn, 2nd Line, Innisfil Twp.",
     year: "",
     medium: '13" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1518,7 +1372,6 @@ window.ARTWORKS = [
     title: "Red Canoe, Lake Simcoe",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1528,7 +1381,6 @@ window.ARTWORKS = [
     title: "Lake Simcoe Clouds No. 1",
     year: "2024-07-21",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1538,7 +1390,6 @@ window.ARTWORKS = [
     title: "Storm Cloud No. 1, Lake Simcoe",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1548,7 +1399,6 @@ window.ARTWORKS = [
     title: "Storm Cloud No. 2, Lake Simcoe",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1558,7 +1408,6 @@ window.ARTWORKS = [
     title: "Swallowtail with Joe Pye Weed",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1568,7 +1417,6 @@ window.ARTWORKS = [
     title: "Laser Focus, Lake Simcoe",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1578,7 +1426,6 @@ window.ARTWORKS = [
     title: "Goldenrod, Lake Simcoe",
     year: "2020-05-26",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1588,7 +1435,6 @@ window.ARTWORKS = [
     title: "Lily Pad, De Grassi Point, Lake Simcoe",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1598,7 +1444,6 @@ window.ARTWORKS = [
     title: "August, De Grassi Point",
     year: "",
     medium: '14" x 11"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1608,7 +1453,6 @@ window.ARTWORKS = [
     title: "Summer through the Bough, De Grassi Point",
     year: "",
     medium: '14" x 11"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1618,7 +1462,6 @@ window.ARTWORKS = [
     title: "Under the Willow, De Grassi Point",
     year: "",
     medium: '14" x 11"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1628,7 +1471,6 @@ window.ARTWORKS = [
     title: "Purple Haze, De Grassi Point",
     year: "",
     medium: '14" x 11"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1638,7 +1480,6 @@ window.ARTWORKS = [
     title: "Kayak Days, Lake Simcoe",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1648,7 +1489,6 @@ window.ARTWORKS = [
     title: "Towering Pine, De Grassi Point",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1658,7 +1498,6 @@ window.ARTWORKS = [
     title: "Swallowtail, De Grassi Point",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1668,7 +1507,6 @@ window.ARTWORKS = [
     title: "Provincetown, Cape Cod",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1678,7 +1516,6 @@ window.ARTWORKS = [
     title: "Caledon Hills",
     year: "2020",
     medium: '22" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1688,7 +1525,6 @@ window.ARTWORKS = [
     title: "Ithaca Falls at Sunset",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1698,7 +1534,6 @@ window.ARTWORKS = [
     title: "September, Evergreen Brick Works",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1708,7 +1543,6 @@ window.ARTWORKS = [
     title: "Don Valley Brick Works",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1718,7 +1552,6 @@ window.ARTWORKS = [
     title: "Fall Sumac at the Brick Works",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1728,7 +1561,6 @@ window.ARTWORKS = [
     title: "Park Drive Reservation Lands",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1738,7 +1570,6 @@ window.ARTWORKS = [
     title: "Rosedale to Summerhill",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1748,7 +1579,6 @@ window.ARTWORKS = [
     title: "The Night Bus",
     year: "",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1758,7 +1588,6 @@ window.ARTWORKS = [
     title: "In Transit",
     year: "2024-01-20",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1768,7 +1597,6 @@ window.ARTWORKS = [
     title: "Night Bus 82",
     year: "2024-12-08",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1778,7 +1606,6 @@ window.ARTWORKS = [
     title: "At the Crossroads",
     year: "2024-03-01",
     medium: "",
-    selects: false,
     watercolours: true,
   },
   {
@@ -1788,7 +1615,6 @@ window.ARTWORKS = [
     title: "Safe Crossing",
     year: "2024-10-06",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1798,7 +1624,6 @@ window.ARTWORKS = [
     title: "Rainbow, Glen Road Bridge",
     year: "",
     medium: '22" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1808,7 +1633,6 @@ window.ARTWORKS = [
     title: "Peace in the Hood",
     year: "2023-07-16",
     medium: '16" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1819,7 +1643,6 @@ window.ARTWORKS = [
     year: "2022",
     medium: '24" x 18"',
     notes: "Juried entry to group exhibition \"Life Doesn't Stand Still\" at Leslie Grove Gallery - Nov 16 - Dec 4, 2022",
-    selects: false,
     watercolours: true,
   },
   {
@@ -1829,7 +1652,6 @@ window.ARTWORKS = [
     title: "Barney's got that sinking feeling again",
     year: "",
     medium: '22.5" x 15"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1839,7 +1661,6 @@ window.ARTWORKS = [
     title: "Tilly rack 'em up",
     year: "",
     medium: '10" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1849,7 +1670,6 @@ window.ARTWORKS = [
     title: "Barney takes a sip",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1859,7 +1679,6 @@ window.ARTWORKS = [
     title: "Cat Nap",
     year: "",
     medium: '11" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1869,7 +1688,6 @@ window.ARTWORKS = [
     title: "Spin Dry",
     year: "",
     medium: '14" x 10.25"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1879,7 +1697,6 @@ window.ARTWORKS = [
     title: "Tilly Undercover",
     year: "2023",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1889,7 +1706,6 @@ window.ARTWORKS = [
     title: "A Walk in the Snow",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1899,7 +1715,6 @@ window.ARTWORKS = [
     title: "Cahoon Hollow Beach, Cape Cod",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1909,7 +1724,6 @@ window.ARTWORKS = [
     title: "Lighthouse, Tobermory",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1919,7 +1733,6 @@ window.ARTWORKS = [
     title: "Flowerpot Island - Far Side, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1929,7 +1742,6 @@ window.ARTWORKS = [
     title: "Halfway Log Dump Beach, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1939,7 +1751,6 @@ window.ARTWORKS = [
     title: "Between a Rock and a Hard Place - Halfway Log Dump Beach, Tobermory",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1949,7 +1760,6 @@ window.ARTWORKS = [
     title: "Cranberry Bog Frog, Killarney",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1959,7 +1769,6 @@ window.ARTWORKS = [
     title: "Emmett Lake, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1969,7 +1778,6 @@ window.ARTWORKS = [
     title: "Georgian Bay island",
     year: "2023-08-19",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1979,7 +1787,6 @@ window.ARTWORKS = [
     title: "Forest Glade, Emmett Lake, Bruce Peninsula",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1989,7 +1796,6 @@ window.ARTWORKS = [
     title: "Killarney Paddle",
     year: "",
     medium: '10" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -1999,7 +1805,6 @@ window.ARTWORKS = [
     title: "Killarney Reflections",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2009,7 +1814,6 @@ window.ARTWORKS = [
     title: "The Fallen at Hardy Lake Provincial Park",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2020,7 +1824,6 @@ window.ARTWORKS = [
     year: "2022",
     medium: '22.5" x 15"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Fall, 2022 - Juror: Logan Bales",
-    selects: false,
     watercolours: true,
   },
   {
@@ -2030,7 +1833,6 @@ window.ARTWORKS = [
     title: "Gold Fish and Lily Pad",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2040,7 +1842,6 @@ window.ARTWORKS = [
     title: "Lily Pads, No. 1 Lake Simcoe",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2050,7 +1851,6 @@ window.ARTWORKS = [
     title: "Lily Pads No. 2, Lake Simcoe",
     year: "",
     medium: '10" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2060,7 +1860,6 @@ window.ARTWORKS = [
     title: "Lily Pads, Muskoka",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2070,7 +1869,6 @@ window.ARTWORKS = [
     title: "Lily Pads with Dragonflies",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2080,7 +1878,6 @@ window.ARTWORKS = [
     title: "Raspberry Flowers",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2090,7 +1887,6 @@ window.ARTWORKS = [
     title: "Wild Rose",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2100,7 +1896,6 @@ window.ARTWORKS = [
     title: "Thistle",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2110,7 +1905,6 @@ window.ARTWORKS = [
     title: "Raspberry",
     year: "",
     medium: '12" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2120,7 +1914,6 @@ window.ARTWORKS = [
     title: "Dogwood after the Rain",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2130,7 +1923,6 @@ window.ARTWORKS = [
     title: "Wasp at Work",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2140,7 +1932,6 @@ window.ARTWORKS = [
     title: "Lemon Tree",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2150,7 +1941,6 @@ window.ARTWORKS = [
     title: "Carps Pond, Fontainebleau",
     year: "",
     medium: '10" x 14"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2160,7 +1950,6 @@ window.ARTWORKS = [
     title: "Falling, Falling, Fallen, Ragged Falls",
     year: "",
     medium: '18" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2170,7 +1959,6 @@ window.ARTWORKS = [
     title: "Ice Glaze, Ragged Falls",
     year: "",
     medium: '18" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2180,7 +1968,6 @@ window.ARTWORKS = [
     title: "Upstream, Ragged Falls",
     year: "",
     medium: '18" x 12"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2190,7 +1977,6 @@ window.ARTWORKS = [
     title: "Lone Pine",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2200,7 +1986,6 @@ window.ARTWORKS = [
     title: "Snow Cone",
     year: "",
     medium: '16" x 22"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2210,7 +1995,6 @@ window.ARTWORKS = [
     title: "Echo Lake, Fayette, Maine",
     year: "",
     medium: '22" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2220,7 +2004,6 @@ window.ARTWORKS = [
     title: "Blue Watering Can",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2230,7 +2013,6 @@ window.ARTWORKS = [
     title: "Mallard No. 1, Brick Works",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2240,7 +2022,6 @@ window.ARTWORKS = [
     title: "Mallard No. 2",
     year: "",
     medium: '14" x 10.25"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2250,7 +2031,6 @@ window.ARTWORKS = [
     title: "Rockhopper Penguin",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2260,7 +2040,6 @@ window.ARTWORKS = [
     title: "Still Life with Sunflowers",
     year: "",
     medium: '15" x 9"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2270,7 +2049,6 @@ window.ARTWORKS = [
     title: "A Monk's Life",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2281,7 +2059,6 @@ window.ARTWORKS = [
     year: "2023",
     medium: '20" x 14"',
     notes: "Juried entry to Toronto Watercolour Society Aquavision Group Show - Spring, 2023 - Juror: Ray McNeice",
-    selects: false,
     watercolours: true,
   },
   {
@@ -2291,7 +2068,6 @@ window.ARTWORKS = [
     title: "Cordoba Cathedral",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2301,7 +2077,6 @@ window.ARTWORKS = [
     title: "My Electric Toothbrush",
     year: "",
     medium: '12" x 8"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2311,7 +2086,6 @@ window.ARTWORKS = [
     title: "Brick Works on Ice",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2321,7 +2095,6 @@ window.ARTWORKS = [
     title: "At the Brick Works",
     year: "",
     medium: '24" x 18"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2331,7 +2104,6 @@ window.ARTWORKS = [
     title: "Life Preserver, Brick Works",
     year: "",
     medium: '18" x 24"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2341,7 +2113,6 @@ window.ARTWORKS = [
     title: "Stump Decay, Lake Simcoe",
     year: "",
     medium: '14" x 10"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2351,7 +2122,6 @@ window.ARTWORKS = [
     title: "Meadow in Winter No. 2, De Grassi Point",
     year: "",
     medium: '30" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2361,7 +2131,6 @@ window.ARTWORKS = [
     title: "Sunlit Shore in Winter",
     year: "2023-12-31",
     medium: '15" x 22"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2371,7 +2140,6 @@ window.ARTWORKS = [
     title: "Floating Heart Bay, Lake Superior",
     year: "",
     medium: '15" x 22.5"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2381,7 +2149,6 @@ window.ARTWORKS = [
     title: "St. George's, Grenada",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2391,7 +2158,6 @@ window.ARTWORKS = [
     title: "Annandale Falls, Grenada",
     year: "",
     medium: '12" x 16"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2401,7 +2167,6 @@ window.ARTWORKS = [
     title: "Beach Umbrellas galore",
     year: "2017",
     medium: '9" x 28"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2411,7 +2176,6 @@ window.ARTWORKS = [
     title: "Ski Spray",
     year: "2025-10",
     medium: '11" x 20"',
-    selects: false,
     watercolours: true,
   },
   {
@@ -2421,7 +2185,6 @@ window.ARTWORKS = [
     title: "Good Vibrations",
     year: "2024-08-14",
     medium: '11" x 30"',
-    selects: false,
     watercolours: true,
   },
 ];

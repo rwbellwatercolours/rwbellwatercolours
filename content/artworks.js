@@ -41,6 +41,36 @@
 
 window.ARTWORKS = [
   {
+    src: "images/lily-pads-no-2-brick-works.jpg",
+    width: 2000,
+    height: 1480,
+    title: "Lily Pads No.2, Brick Works",
+    year: "2026-06-23",
+    medium: '12" x 16"',
+    watercolours: true,
+    alt: "Lily pads and a single white water lily with a yellow centre floating on deep blue-black water, seen from above.",
+  },
+  {
+    src: "images/great-egret-brick-works.jpg",
+    width: 2000,
+    height: 1484,
+    title: "Great Egret, Brick Works",
+    year: "2026-07-09",
+    medium: '12" x 16"',
+    watercolours: true,
+    alt: "A white egret standing at the edge of dark still water among fallen logs and cattails, tall green reeds crossing the foreground.",
+  },
+  {
+    src: "images/tillys-moment-in-the-sun.jpg",
+    width: 1487,
+    height: 2000,
+    title: "Tilly’s Moment in the Sun",
+    year: "2026-08-03",
+    medium: '16" x 12"',
+    watercolours: true,
+    alt: "A calico cat stretched out on her back in a patch of sunlight on a kitchen floor, a striped towel hanging from the dishwasher behind her.",
+  },
+  {
     src: "images/sailing-lake-muskoka.jpg",
     width: 2000,
     height: 1514,

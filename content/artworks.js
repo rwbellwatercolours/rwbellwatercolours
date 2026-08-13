@@ -62,7 +62,7 @@ window.ARTWORKS = [
   },
   {
     src: "images/tillys-moment-in-the-sun.jpg",
-    width: 1487,
+    width: 1475,
     height: 2000,
     title: "Tilly’s Moment in the Sun",
     year: "2026-08-03",

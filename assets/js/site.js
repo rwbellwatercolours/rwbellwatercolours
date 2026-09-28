@@ -462,17 +462,31 @@
     return "Painting by " + (SITE.name || "the artist");
   }
 
+  /* The grid shows a painting a few hundred pixels wide, so it loads the
+     small copy from images/thumbs/ instead of the full-size file. Clicking
+     one still opens the original. tools/make-thumbs.py writes these. */
+  function thumbFor(src) {
+    return String(src).replace(/^images\//, "images/thumbs/");
+  }
+
   /* `showCaption` is false on the front page, where the images stand alone —
      there the title is revealed over the painting on hover instead. Album
      pages set it true and print the title underneath. */
-  function artworkTile(item, index, onOpen, showCaption) {
+  function artworkTile(item, index, onOpen, showCaption, useThumb) {
     var button = el("button", "work-item");
     button.type = "button";
 
     var frame = el("div", "work-item__frame");
 
     var img = el("img", "work-item__image");
-    img.src = item.src;
+    img.src = useThumb ? thumbFor(item.src) : item.src;
+    // If a thumbnail was never generated, quietly use the full-size file.
+    if (useThumb) {
+      img.addEventListener("error", function fallback() {
+        img.removeEventListener("error", fallback);
+        img.src = item.src;
+      });
+    }
     img.alt = altFor(item);
     if (item.width) img.width = item.width;
     if (item.height) img.height = item.height;
@@ -610,7 +624,7 @@
         return item;
       },
       function (item, i) {
-        var tile = artworkTile(item, i, openAt, settings.captions);
+        var tile = artworkTile(item, i, openAt, settings.captions, settings.thumbs);
         tile.setAttribute("data-index", i);
         return tile;
       },
@@ -852,6 +866,7 @@
     var grid = renderGrid(gridMount, items, openViewer, {
       captions: false,
       density: "compact",
+      thumbs: true,
     });
 
     /* Filter by title as the visitor types in the menu-bar search. */

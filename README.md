@@ -96,6 +96,14 @@ python3 tools/add-images.py
 Lists any image in `images/` that isn't in `artworks.js` yet, with its size.
 Add `--write` to actually add them to the top of the list.
 
+```bash
+python3 tools/make-thumbs.py
+```
+
+Makes the small copies the gallery grid uses, so the page loads quickly.
+`add-images.py --write` runs this for you, so you only need it by hand if you
+ever replace a painting's image file.
+
 ---
 
 ## Publishing it — free, forever

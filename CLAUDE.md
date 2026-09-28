@@ -39,7 +39,7 @@ content/site.js       window.SITE      — name, email, socials, About text
 content/artworks.js   window.ARTWORKS  — the paintings
 assets/js/site.js     builds header, footer, grid and lightbox from the above
 assets/css/site.css   all styling
-tools/                serve.py, add-images.py
+tools/                serve.py, add-images.py, make-thumbs.py
 ```
 
 Each page is a thin shell: `[data-header]`, `[data-content]`, `[data-footer]`.
@@ -106,6 +106,19 @@ git add . && git commit -m "..." && git push
 ```
 
 Only commit and push when asked. See README.md for the one-time setup.
+
+## Thumbnails
+
+The grid loads 700px copies from `images/thumbs/`, not the full-size files —
+otherwise a 1400px painting is downloaded to fill a ~330px square, and the
+page weighs 51 MB instead of 15 MB. The lightbox still opens the original.
+
+`tools/make-thumbs.py` writes them, and `add-images.py --write` runs it at the
+end, so adding a painting stays one command. If a thumbnail is ever missing
+the grid falls back to the full-size file — nothing breaks, it just gets slow.
+
+The About-page portraits deliberately do **not** use thumbnails: they render
+around 700px wide, so they pass `useThumb` as false in `renderAbout`.
 
 ## Things that are easy to get wrong
 

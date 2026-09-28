@@ -208,6 +208,13 @@ def main():
     print("\nAdded to content/artworks.js. Open it and fill in the year,")
     print("medium and album for each — or ask Claude to do it.")
 
+    # The grid loads small copies of each painting. Make them now so the new
+    # ones do not arrive as full-size files and slow the page down.
+    import subprocess
+
+    print()
+    subprocess.call([sys.executable, os.path.join(HERE, "make-thumbs.py")])
+
 
 if __name__ == "__main__":
     main()

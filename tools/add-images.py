@@ -22,6 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 IMAGES = os.path.join(ROOT, "images")
 ARTWORKS = os.path.join(ROOT, "content", "artworks.js")
+SITE = os.path.join(ROOT, "content", "site.js")
 
 EXTENSIONS = (".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif")
 
@@ -159,6 +160,13 @@ def main():
         source = fh.read()
 
     listed = set(re.findall(r'src:\s*"([^"]+)"', source))
+
+    # The About-page photographs live in images/ too, but they are not
+    # paintings. Without this they get listed as missing and --write files
+    # them in the gallery as "Portrait 01" and "Portrait 02".
+    if os.path.exists(SITE):
+        with open(SITE, "r") as fh:
+            listed |= set(re.findall(r'src:\s*"([^"]+)"', fh.read()))
     on_disk = sorted(
         name
         for name in os.listdir(IMAGES)

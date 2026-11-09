@@ -41,6 +41,26 @@
 
 window.ARTWORKS = [
   {
+    src: "images/pumpkin-window.avif",
+    width: 1057,
+    height: 1400,
+    title: "Pumpkin Window",
+    year: "2026-10-18",
+    medium: '16" x 12"',
+    watercolours: true,
+    alt: "A ribbed orange and plum pumpkin on a sunlit windowsill, with a dark cross-shaped window frame and blurred green trees beyond.",
+  },
+  {
+    src: "images/seeking-direction.avif",
+    width: 908,
+    height: 1400,
+    title: "Seeking Direction",
+    year: "2026-10-02",
+    medium: '22.5" x 15"',
+    watercolours: true,
+    alt: "A helmeted man in a checked shirt astride a motorbike, facing three monks in orange robes beside a pole with a yellow stop-ahead sign, dark foliage behind.",
+  },
+  {
     src: "images/heron-in-flight.avif",
     width: 1400,
     height: 1066,

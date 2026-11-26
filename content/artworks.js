@@ -41,6 +41,16 @@
 
 window.ARTWORKS = [
   {
+    src: "images/milkweed-in-autumn.avif",
+    width: 1073,
+    height: 1400,
+    title: "Milkweed in Autumn",
+    year: "2026-11-14",
+    medium: '16" x 12"',
+    watercolours: true,
+    alt: "Yellowing milkweed leaves curling around a pale green seed pod, with purple asters and dark foliage behind and a sunlit field of white seed fluff beyond.",
+  },
+  {
     src: "images/pumpkin-window.avif",
     width: 1057,
     height: 1400,
@@ -59,6 +69,7 @@ window.ARTWORKS = [
     medium: '22.5" x 15"',
     watercolours: true,
     alt: "A helmeted man in a checked shirt astride a motorbike, facing three monks in orange robes beside a pole with a yellow stop-ahead sign, dark foliage behind.",
+    notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Fall 2026 Juror: Andy Sookrah",
   },
   {
     src: "images/heron-in-flight.avif",
@@ -281,6 +292,7 @@ window.ARTWORKS = [
     year: "2026-01-03",
     medium: '16" x 12"',
     watercolours: true,
+    notes: "Juried entry to Toronto Watercolour Aquavision Group Show - Fall 2026 Juror: Andy Sookrah",
   },
   {
     src: "images/016-blue-watering-can-no-2.avif",
